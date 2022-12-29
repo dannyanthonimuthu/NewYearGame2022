@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Year Game 2022</title>
+    <link rel="stylesheet" href="sources/styles.css">
+</head>
+<body>
+
+    <h1>Spørgsmål 2</h1>
+
+    <h2>Kategori: Slogan</h2>
+
+
+    <div class="questionboxes">
+        <div class="containerboxes">
+            <div class="blackbox"></div>
+            <div class="blackbox"></div>
+            <div class="yellowbox"><h3 class = "N">N</h3></div>
+            <div class="yellowbox"><h3 class = "Å">Å</h3></div>
+            <div class="yellowbox"><h3 class = "R">R</h3></div>
+            <div class="blackbox"></div>
+            <div class="yellowbox"><h3 class = "D">D</h3></div>
+            <div class="yellowbox"><h3 class = "U">U</h3></div>
+            <div class="blackbox"></div>
+            <div class="yellowbox"><h3 class = "E">E</h3></div>
+            <div class="yellowbox"><h3 class = "R">R</h3></div>
+            <div class="blackbox"></div>
+            <div class="yellowbox"><h3 class = "S">S</h3></div>
+            <div class="yellowbox"><h3 class = "U">U</h3></div>
+            <div class="yellowbox"><h3 class = "L">L</h3></div>
+            <div class="yellowbox"><h3 class = "T">T</h3></div>
+            <div class="yellowbox"><h3 class = "E">E</h3></div>
+            <div class="yellowbox"><h3 class = "N">N</h3></div>
+            <div class="blackbox"></div>
+            <div class="blackbox"></div>
+        </div>
+    </div>
+
+
+    <div class="questionboxes">
+        <div class="containerboxes">
+            <div class="blackbox"></div>
+            <div class="blackbox"></div>
+            <div class="yellowbox"><h3 class = "F">F</h3></div>
+            <div class="yellowbox"><h3 class = "O">O</h3></div>
+            <div class="yellowbox"><h3 class = "R">R</h3></div>
+            <div class="blackbox"></div>
+            <div class="yellowbox"><h3 class = "S">S</h3></div>
+            <div class="yellowbox"><h3 class = "J">J</h3></div>
+            <div class="yellowbox"><h3 class = "O">O</h3></div>
+            <div class="yellowbox"><h3 class = "V">V</h3></div>
+            <div class="blackbox"></div>
+            <div class="blackbox"></div>
+        </div>
+    </div>
+
+
+    <div class="containerQuestion">
+    <form  id ="myForm" action="/" method="GET">
+        <input  id ="getValues" type ="text" placeholder="Gæt bogstav">
+    </form>
+    </div>
+
+   
+
+
+
+    
+    <div class="containerButtons">
+    <button id = "getAnswer" class="answer" type="button">Se svar</button>
+    <button class="submit" id="myBtn" type="button"> Godkend</button>
+    <a href="question3.html">
+        <button class="Next" type="button"> Næste</button>
+    </a>
+    
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+
+    <script>
+        $("h3").toggle();
+        const words = [];
+        for (let i = 0; i < document.querySelectorAll("h3").length; i++) {
+            a = document.querySelectorAll("h3")[i].firstChild.nodeValue;
+            words.push(a);
+            
+        }
+        console.log(words)
+
+        const answer = document.getElementById("getAnswer")
+        answer.addEventListener("click", answerFunction); 
+
+        function answerFunction() {
+            $("h3").hide();
+            $("h3").fadeIn();
+        }
+
+       const element = document.getElementById("myBtn");
+       element.addEventListener("click", myFunction);
+       
+       function myFunction() {
+        tempText = document.getElementById("getValues").value;
+        console.log(tempText);
+
+        if (words.includes(document.getElementById("getValues").value)) {
+        console.log("Yeah, it works - positive")
+        $("."+tempText).fadeToggle()
+        } else {
+        console.log("It still works - Negative")
+        $("body").addClass("game-over")
+
+        setTimeout(function() {
+            $("body").removeClass("game-over");
+        },300)
+
+        }
+    }
+
+    
+    </script>
+   
+</body>
+</html>
